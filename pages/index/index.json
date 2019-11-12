@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "auth-modal":"../../components/Auth-Modal/index"
+  }
+}

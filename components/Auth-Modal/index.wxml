@@ -1,0 +1,24 @@
+<!--component/auth-modal/index.wxml-->
+<view class='shadow {{isShow?"show":""}}'>
+  <view class='modal-box'>
+    <view class='title grey'>漫妮旅行 申请</view>
+    <view class='content'>
+      获得您的公开信息(昵称，头像，性别等)
+      <view class="user-card">
+        <view class="avatar">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class="right">
+          <view class="nickname">
+            <open-data type="userNickName"></open-data>
+          </view>
+          <view>微信个人信息</view>
+        </view>
+      </view>
+    </view>
+    <view class='footer'>
+      <!-- <button class='cancel' bindtap='hide'>取 消</button> -->
+      <button class='auth' type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">授 权</button>
+    </view>
+  </view>
+</view>

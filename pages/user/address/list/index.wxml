@@ -1,0 +1,31 @@
+<!--pages/user/address/list/index.wxml-->
+<view class="address">
+  <view class="address-message">
+    <view class="address-item">
+      <text>收货人: {{name}}</text>
+    </view>
+    <view class="address-item">
+      <text>联系方式: {{tel}}</text>
+    </view>
+    <view class="address-item">
+      <text>收货地址: {{address}}</text>
+    </view>
+  </view>
+  <view class="operate-list">
+    <checkbox class="checkbox">
+      <text>默认地址</text>
+    </checkbox>
+    <button bindtap="goEdit" size="mini" type="warn">编辑</button>
+    <image class="delete" src="../../static/images/delete.png"></image>
+  </view>
+</view>
+<view class="address-item" wx:for="{{data}}" wx:key="key">
+  <template is="addressTemplate" data="{{...item}}"></template>
+  <view class="border"></view>
+</view>
+
+<view class="extra-view"></view>
+
+<view class="addAddress">
+  添加新地址
+</view>

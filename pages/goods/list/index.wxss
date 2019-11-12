@@ -1,0 +1,21 @@
+/* pages/goods/list/index.wxss */
+.goods .cu-item {
+  display: flex;
+  padding-top: 35rpx;
+}
+
+.goods .photo {
+  width: 201rpx;
+  height: 190rpx;
+  margin: 0 26rpx;
+}
+
+.goods-title {
+  font-size: 26rpx;
+}
+
+.goods .content {
+  width: 466rpx;
+  padding-bottom: 32rpx;
+  border-bottom: 1rpx solid #eee;
+}

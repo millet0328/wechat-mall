@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/goods/list/index",
+    "pages/cartegory/index",
+    "pages/goods/detail/index",
+    "pages/index/index",
+    "pages/user/center/index",
+    "pages/user/address/list/index",
+    "pages/cart/index",
+    "pages/brokerage/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff2732",
+    "navigationBarTitleText": "乐购商城",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#ff2732",
+    "list": [
+      {
+        "text": "主页",
+        "pagePath": "pages/index/index",
+        "iconPath": "./static/tab-bar/home.png",
+        "selectedIconPath": "./static/tab-bar/home-active.png"
+      },
+      {
+        "text": "分类",
+        "pagePath": "pages/cartegory/index",
+        "iconPath": "./static/tab-bar/category.png",
+        "selectedIconPath": "./static/tab-bar/category-active.png"
+      },
+      {
+        "text": "佣金",
+        "pagePath": "pages/brokerage/index",
+        "iconPath": "./static/tab-bar/money.png",
+        "selectedIconPath": "./static/tab-bar/money-active.png"
+      },
+      {
+        "text": "购物车",
+        "pagePath": "pages/cart/index",
+        "iconPath": "./static/tab-bar/cart.png",
+        "selectedIconPath": "./static/tab-bar/cart-active.png"
+      },
+      {
+        "text": "我",
+        "pagePath": "pages/user/center/index",
+        "iconPath": "./static/tab-bar/user.png",
+        "selectedIconPath": "./static/tab-bar/user-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

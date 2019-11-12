@@ -1,0 +1,17 @@
+/* pages/user/center/index.wxss */
+
+.user-card {
+  height: 200rpx;
+  padding-left: 45rpx;
+  padding-right: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-card .avatar {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}

@@ -1,0 +1,21 @@
+/* pages/goods/detail/index.wxss */
+
+page {
+  padding-bottom: 100rpx;
+}
+
+.screen-swiper {
+  height: 750rpx;
+}
+
+.shop.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.goods-card .icon {
+  width: 20rpx;
+  height: 20rpx;
+}

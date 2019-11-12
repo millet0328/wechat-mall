@@ -1,0 +1,58 @@
+<!--pages/goods/detail/index.wxml-->
+<view>
+  <swiper class="screen-swiper" indicator-dots>
+    <swiper-item class="swiper-item" wx:for="{{detail.slider}}" wx:key="index">
+      <image mode="aspectFill" src="{{host + item}}"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 名称 -->
+  <view class="goods-card padding-lg bg-white">
+    <view class="text-black text-lg padding-bottom-lg">{{detail.name}}</view>
+    <view class="flex justify-between">
+      <view class="flex align-center text-red">
+        <image class="icon margin-right-sm" src="../../../static/icons/icon-database.png"></image>
+        <text class="text-xs">积分抵扣：</text>
+        <text class="text-sm">21.8</text>
+      </view>
+      <view class="flex align-center">
+        <text class="cu-tag round bg-red margin-right-sm">到手价</text>
+        <text class="text-black text-lg">￥{{detail.price}}</text>
+      </view>
+    </view>
+    <view class="flex align-center text-red text-xs">
+      <image class="icon margin-right-sm" src="../../../static/icons/icon-money.png"></image>
+      <text>赚</text>
+      <text class="text-sm margin-right-lg">￥13.9</text>
+      <text class="text-grey">佣金比例：</text>
+      <text class="text-grey">15.00%</text>
+    </view>
+  </view>
+  <!-- 详情 -->
+  <view class="cu-bar bg-white margin-top-sm">
+    <view class="content text-black">
+      — 商品详情 —
+    </view>
+  </view>
+  <!-- 富文本 -->
+  <rich-text nodes="{{detail.detail}}"></rich-text>
+  <!-- 底部bar -->
+  <view class="cu-bar bg-white tabbar border shop">
+    <view class="action">
+      <view class="cuIcon-service text-green">
+        <view class="cu-tag badge"></view>
+      </view>
+      客服
+    </view>
+    <view class="action text-orange">
+      <view class="cuIcon-favorfill"></view> 已收藏
+    </view>
+    <view class="action">
+      <view class="cuIcon-cart">
+        <view class="cu-tag badge">99</view>
+      </view>
+      购物车
+    </view>
+    <view class="bg-orange submit">加入购物车</view>
+    <view class="bg-red submit">立即购买</view>
+  </view>
+</view>
