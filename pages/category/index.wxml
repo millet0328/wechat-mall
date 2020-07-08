@@ -1,0 +1,31 @@
+<!--pages/category/index.wxml-->
+<view class="category flex bg-white">
+	<!-- 左侧 -->
+	<scroll-view scroll-y class="left">
+		<view data-i="{{index}}" data-id="{{item.id}}" bindtap="handleChange" class="{{activeIndex == index ? 'item active':'item'}}" scroll-with-animation wx:for="{{category}}" wx:key="id">
+			{{item.name}}
+		</view>
+	</scroll-view>
+	<!-- 右侧 -->
+	<scroll-view enable-flex scroll-y class="right padding-sm">
+		<!-- 轮播图 -->
+		<swiper class="screen-swiper round-dot" indicator-dots circular duration="500">
+			<swiper-item>
+				<image src="../../static/images/bg.png" mode="aspectFill"></image>
+			</swiper-item>
+		</swiper>
+		<!-- 二级分类 -->
+		<view class="cu-bar bg-white solid-bottom">
+			<view class="action">
+				<text>二级分类</text>
+			</view>
+		</view>
+		<!-- 三级分类 -->
+		<view class="subcate flex flex-wrap">
+			<navigator url="../goods/list/index?id={{item.id}}" wx:for="{{subCate}}" wx:key="id" class="item text-center padding-top-lg">
+				<image class="cu-avatar xl radius" src=""></image>
+				<view class="name margin-top-sm text-sm">{{item.name}}</view>
+			</navigator>
+		</view>
+	</scroll-view>
+</view>

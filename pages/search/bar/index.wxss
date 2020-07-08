@@ -1,0 +1,4 @@
+/* pages/search/bar/index.wxss */
+.cu-bar .action {
+  width: 20%;
+}

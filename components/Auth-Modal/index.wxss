@@ -28,7 +28,7 @@
 }
 
 .modal-box .title {
-  padding: 50rpx 40rpx;
+  padding: 40rpx;
   border-bottom: 1rpx solid #ddd;
   font-size: 28rpx;
   color: #666;
@@ -36,7 +36,7 @@
 
 .modal-box .content {
   padding: 40rpx;
-  font-size: 36rpx;
+  font-size: 32rpx;
 }
 
 .user-card {
@@ -44,7 +44,7 @@
   align-items: center;
   border-top: 1rpx solid #e5e5e5;
   border-bottom: 1rpx solid #e5e5e5;
-  padding: 10rpx 0;
+  padding: 20rpx 0;
   margin-top: 40rpx;
   font-size: 24rpx;
   color: #666;
@@ -52,14 +52,33 @@
 
 .user-card .avatar {
   width: 140rpx;
+  border: 1rpx solid #eee;
+  margin-right: 40rpx;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .user-card .nickname {
-  padding-bottom: 10rpx;
+  padding-bottom: 20rpx;
+  font-size: 28rpx;
 }
 
 .modal-box .footer {
   padding: 40rpx;
   padding-top: 0;
+  display: flex;
+
 }
 
+.modal-box .footer button {
+  width: 100%;
+}
+
+.modal-box .footer .cancel,
+.modal-box .footer .auth {
+  width: 50%;
+}
+
+.modal-box .footer .cancel {
+  margin-right: 20rpx;
+}

@@ -1,4 +1,3 @@
 <!--pages/index/index.wxml-->
-
 <!-- 自定义组件 -->
-<auth-modal bind:getAuth="authHandle" is-show="{{authModalShow}}"></auth-modal>
+<auth-modal bind:permit="handlePermit" is-show="{{authModalShow}}"></auth-modal>

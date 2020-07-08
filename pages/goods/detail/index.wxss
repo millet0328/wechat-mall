@@ -19,3 +19,16 @@ page {
   width: 20rpx;
   height: 20rpx;
 }
+
+.bottom-modal .goods .photo {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.bottom-modal .specs .count {
+  line-height: 64rpx;
+}
+
+.bottom-modal button:not([size='mini']) {
+  width: 100%;
+}

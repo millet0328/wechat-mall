@@ -1,23 +1,20 @@
-// pages/goods/list/index.js
-
-import { Goods } from '../../../api/index.js';
-
+// pages/search/list/index.js
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
     list: [],
-    cid: '', //分类id
-    pageIndex: 1, //当前第几页
+    currentIndex: 1, //当前第几页
+    sort: "",
     isEnd: false,//是否无新数据
   },
   // 获取商品列表
-  async loadList(id) {
-    // 当前第几页，分类id
-    let { pageIndex, cid } = this.data;
-
-    let { status, goods } = await Goods.list({ pageIndex, pageSize: 5, cate_2nd: cid });
+  async loadList() {
+    // 当前第几页
+    let i = this.data.currentIndex;
+    let { status, goods } = await Goods.list({ pageIndex: i, pageSize: 5 });
     if (status) {
       // 暂无新数据
       if (goods.length == 0) {
@@ -26,20 +23,20 @@ Page({
           icon: "none",
         });
         this.setData({
-          pageIndex: pageIndex - 1,
+          currentIndex: i - 1,
           isEnd: true,
         });
         return;
       }
       // 下拉刷新
-      if (pageIndex == 1) {
+      if (i == 1) {
         this.setData({
           list: goods
         });
         wx.stopPullDownRefresh();
         return;
       }
-      // pageIndex >= 2 上拉加载
+      // i >= 2 上拉加载
       let { list } = this.data;
       this.setData({
         list: [...list, ...goods]
@@ -50,10 +47,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function ({ id }) {
-    this.setData({
-      cid: id
-    });
+  onLoad: function (options) {
     this.loadList();
   },
 
@@ -89,19 +83,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({
-      pageIndex: 1,
-    });
-    this.loadList();
+    this.loadList(1);
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    let { isEnd, pageIndex } = this.data;
     //无新数据
-    if (isEnd) {
+    if (this.data.isEnd) {
       wx.showToast({
         title: '暂无新数据！',
         icon: "none",
@@ -109,7 +99,7 @@ Page({
       return;
     }
     this.setData({
-      pageIndex: pageIndex + 1
+      currentIndex: ++this.data.currentIndex
     });
     this.loadList();
   },

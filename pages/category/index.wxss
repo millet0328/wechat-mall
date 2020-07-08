@@ -1,0 +1,33 @@
+/* pages/category/index.wxss */
+.category .left {
+  width: 150rpx;
+  height: 100vh;
+  padding-top: 34rpx;
+  border-right: 1rpx solid #ddd;
+}
+
+.left .item {
+  margin-bottom: 34rpx;
+  padding: 6rpx 0rpx 6rpx 20rpx;
+  border-left: 4rpx solid white;
+  color: #101010;
+  font-size: 26rpx;
+}
+
+.left .item.active {
+  border-left: 4rpx solid #ff2732;
+  color: #ff2732;
+}
+
+.category .right {
+  width: 600rpx;
+  height: 100vh;
+}
+
+.category .right .screen-swiper {
+  min-height: 200rpx;
+}
+
+.category .subcate .item {
+  width: 33.33333%;
+}

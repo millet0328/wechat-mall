@@ -1,0 +1,13 @@
+<!--pages/search/bar/index.wxml-->
+<!-- 搜索操作条 -->
+<form bindsubmit="handleSearch">
+	<view class="cu-bar search bg-white">
+		<view class="search-form round">
+			<text class="cuIcon-search"></text>
+			<input type="text" name="keyword" placeholder="搜索商品关键字" confirm-type="search"></input>
+		</view>
+		<view class="action">
+			<button form-type="submit" class="cu-btn bg-green shadow-blur round">搜索</button>
+		</view>
+	</view>
+</form>

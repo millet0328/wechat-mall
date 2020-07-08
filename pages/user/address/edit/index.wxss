@@ -1,0 +1,8 @@
+/* pages/user/address/edit/index.wxss */
+.cu-form-group .title {
+  min-width: calc(4em + 60rpx);
+}
+
+.cu-bar.foot {
+  box-shadow: none;
+}

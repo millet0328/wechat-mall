@@ -1,31 +1,29 @@
 <!--pages/user/address/list/index.wxml-->
-<view class="address">
-  <view class="address-message">
-    <view class="address-item">
-      <text>收货人: {{name}}</text>
-    </view>
-    <view class="address-item">
-      <text>联系方式: {{tel}}</text>
-    </view>
-    <view class="address-item">
-      <text>收货地址: {{address}}</text>
-    </view>
-  </view>
-  <view class="operate-list">
-    <checkbox class="checkbox">
-      <text>默认地址</text>
-    </checkbox>
-    <button bindtap="goEdit" size="mini" type="warn">编辑</button>
-    <image class="delete" src="../../static/images/delete.png"></image>
-  </view>
-</view>
-<view class="address-item" wx:for="{{data}}" wx:key="key">
-  <template is="addressTemplate" data="{{...item}}"></template>
-  <view class="border"></view>
-</view>
-
-<view class="extra-view"></view>
-
-<view class="addAddress">
-  添加新地址
+<view>
+	<view class="cu-list menu sm-border padding-sm">
+		<view wx:for="{{list}}" wx:key="id" class="cu-item margin-bottom-sm">
+			<view class="content padding-tb-lg">
+				<view class="text-bold">
+					<text>{{item.name}}</text>
+					<text class="margin-left-lg">{{item.tel}}</text>
+				</view>
+				<view class="text-sm">
+					{{item.province}}{{item.city}}{{item.county}}{{item.street}}</view>
+			</view>
+			<view class="action text-xl flex align-center">
+				<navigator class="margin-lr-lg" url="../edit/index?id={{item.id}}">
+					<text class="cuIcon-write text-orange"></text>
+				</navigator>
+				<text data-id="{{item.id}}" data-index="{{index}}" bindtap="removeHandle" class="cuIcon-close text-grey"></text>
+			</view>
+		</view>
+	</view>
+	<!-- 底部 -->
+	<view class="cu-bar foot btn-group">
+		<button class="cu-btn bg-red round shadow-blur">
+			<navigator url="../add/index">
+				新建收货地址
+			</navigator>
+		</button>
+	</view>
 </view>

@@ -23,7 +23,7 @@ Component({
 	 * 组件的方法列表
 	 */
   methods: {
-    async	getUserInfo({ detail: { encryptedData, iv, errMsg, userInfo } }) {
+    async	handleGetUserInfo({ detail: { encryptedData, iv, errMsg, userInfo } }) {
       if (errMsg == "getUserInfo:fail auth deny") {
         wx.showToast({
           title: '未授权获取用户信息！',
@@ -39,14 +39,13 @@ Component({
         // 缓存userInfo
         wx.setStorageSync("userInfo", userInfo);
         // 将获取的userInfo传递出去
-        this.triggerEvent('getAuth', userInfo);
+        this.triggerEvent('permit', userInfo);
       }
     },
-    hide: function () {
+    handleReject () {
       // 缓存授权状态
       wx.setStorageSync("isAuth", false);
-      this.triggerEvent('cancel');
-      wx.showTabBar();
+      this.triggerEvent('reject');
     }
   },
   lifetimes: {

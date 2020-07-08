@@ -1,29 +1,18 @@
-// pages/index/index.js
+// pages/user/fav/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    authModalShow: false,
+
   },
-  // 授权成功
-  handlePermit(e) {
-    this.setData({
-      authModalShow: false,
-    });
-    wx.showTabBar();
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let isAuth = wx.getStorageSync('isAuth');
-    // isAuth = true，已授权，authModalShow = false
-    // isAuth = false/undefined，未授权，authModalShow = true
-    this.setData({
-      authModalShow: !isAuth,
-    });
+
   },
 
   /**

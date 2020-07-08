@@ -1,13 +1,17 @@
 {
   "pages": [
-    "pages/goods/list/index",
-    "pages/cartegory/index",
-    "pages/goods/detail/index",
     "pages/index/index",
-    "pages/user/center/index",
+    "pages/category/index",
     "pages/user/address/list/index",
+    "pages/user/address/add/index",
+    "pages/user/address/edit/index",
+    "pages/goods/list/index",
+    "pages/goods/detail/index",
+    "pages/user/center/index",
+    "pages/user/fav/index",
     "pages/cart/index",
-    "pages/brokerage/index"
+    "pages/search/bar/index",
+    "pages/search/list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,15 +31,9 @@
       },
       {
         "text": "分类",
-        "pagePath": "pages/cartegory/index",
+        "pagePath": "pages/category/index",
         "iconPath": "./static/tab-bar/category.png",
         "selectedIconPath": "./static/tab-bar/category-active.png"
-      },
-      {
-        "text": "佣金",
-        "pagePath": "pages/brokerage/index",
-        "iconPath": "./static/tab-bar/money.png",
-        "selectedIconPath": "./static/tab-bar/money-active.png"
       },
       {
         "text": "购物车",

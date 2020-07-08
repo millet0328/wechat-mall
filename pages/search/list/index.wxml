@@ -1,0 +1,37 @@
+<!--pages/search/list/index.wxml-->
+<!-- 筛选bar -->
+<scroll-view scroll-x class="bg-white nav">
+	<view class="flex text-center">
+		<view class="cu-item flex-sub text-orange cur">
+			综合
+		</view>
+		<view class="cu-item flex-sub">
+			销量
+		</view>
+		<view class="cu-item flex-sub">
+			新品
+		</view>
+		<view class="cu-item flex-sub">
+			价格
+		</view>
+	</view>
+</scroll-view>
+<!-- 列表数据 -->
+<view class="cu-list goods">
+	<navigator wx:for="{{goods}}" wx:key="id" url="../detail/index?id={{item.id}}" class="cu-item bg-white">
+		<image class="cu-avatar photo radius lg" src="{{host}}{{item.img_md}}"></image>
+		<view class="content">
+			<view class="text-black padding-bottom-xl">
+				{{item.name}}
+			</view>
+			<view class="flex align-end">
+				<view class="text-red margin-right-sm">
+					<text class="text-price text-lg">{{item.price}}</text>
+				</view>
+				<view class="text-gray">
+					<text class="text-price text-sm">280</text>
+				</view>
+			</view>
+		</view>
+	</navigator>
+</view>

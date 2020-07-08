@@ -1,0 +1,42 @@
+<!--pages/user/address/edit/index.wxml-->
+<view>
+	<form bindsubmit='submitForm'>
+		<input name="id" value="{{form.id}}" hidden></input>
+		<view class="cu-form-group">
+			<view class="title">收货人：</view>
+			<input placeholder="请填写收货人姓名" name="name" value="{{form.name}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">手机号码：</view>
+			<input placeholder="请填写收货人手机号码" name="tel" value="{{form.tel}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">所在地区：</view>
+			<picker mode="region" name="region" value="{{region}}" bindchange="bindRegionChange">
+				<view class="picker" style="text-align:left">
+					{{region[0]}}{{region[1]}}{{region[2]}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group align-start">
+			<view class="title">详细地址：</view>
+			<textarea placeholder="街道、楼牌号等" name="street" value="{{form.street}}"></textarea>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">邮政编码：</view>
+			<input placeholder="请填写邮政编码" name="code" value="{{form.code}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">
+				设置默认地址：
+			</view>
+			<switch class="red sm" name="isDefault" checked="{{form.isDefault}}"></switch>
+		</view>
+		<!-- 按钮 -->
+		<view class="cu-bar foot btn-group">
+			<button form-type="submit" class="cu-btn bg-red round shadow-blur">
+				保 存
+			</button>
+		</view>
+	</form>
+</view>

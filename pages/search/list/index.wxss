@@ -1,4 +1,4 @@
-/* pages/goods/list/index.wxss */
+/* pages/search/list/index.wxss */
 .goods .cu-item {
   display: flex;
   padding-top: 35rpx;

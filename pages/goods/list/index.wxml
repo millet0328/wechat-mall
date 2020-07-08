@@ -1,30 +1,36 @@
 <!--pages/goods/list/index.wxml-->
 <!-- 筛选bar -->
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    综合
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub text-orange cur">
+      综合
+    </view>
+    <view class="cu-item flex-sub">
+      销量
+    </view>
+    <view class="cu-item flex-sub">
+      新品
+    </view>
+    <view class="cu-item flex-sub">
+      价格
+    </view>
   </view>
-  <view class="action">
-    销量
-  </view>
-  <view class="action">
-    新品
-  </view>
-  <view class="action">
-    价格
-  </view>
-</view>
+</scroll-view>
 <!-- 列表数据 -->
 <view class="cu-list goods">
-  <navigator url="../detail/index?id={{item.id}}" wx:for="{{list}}" wx:key="{{item.id}}" class="cu-item bg-white">
-    <view class="cu-avatar photo radius lg" style="background-image:url({{host + item.img_md}});"></view>
+  <navigator url="../detail/index?id={{item.id}}" wx:for="{{list}}" wx:key="id" class="cu-item bg-white">
+    <view class="cu-avatar photo radius lg" style="background-image:url({{item.img_md}});"></view>
     <view class="content">
-      <view class="text-black text-lg padding-bottom-sm">
+      <view class="text-black padding-bottom-xl">
         {{item.name}}
       </view>
-      <view class="flex">
-        <text class="cu-tag round bg-red margin-right-sm">到手价</text>
-        <text class="text-black text-xl">￥{{item.price}}</text>
+      <view class="flex align-end">
+        <view class="text-red margin-right-sm">
+          <text class="text-price text-lg">{{item.price}}</text>
+        </view>
+        <view class="text-gray">
+          <text class="text-price text-sm">{{item.price}}</text>
+        </view>
       </view>
     </view>
   </navigator>

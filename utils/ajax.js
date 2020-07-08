@@ -10,7 +10,7 @@ let request = {
     let token = wx.getStorageSync('token');
     // 设置头部信息header
     let headerConfig = {
-      "content-type": "application/json",
+      "Content-Type": 'application/x-www-form-urlencoded',
       Authorization: `Bearer ${token}`,
     };
     // 拼接完整api地址
@@ -39,11 +39,11 @@ let request = {
     });
     return promise;
   },
-  post(url, data) {
-    return this.ajax({ url, data, method: "POST" })
-  },
   get(url, data) {
     return this.ajax({ url, data, method: "GET" })
+  },
+  post(url, data) {
+    return this.ajax({ url, data, method: "POST" })
   },
   put(url, data) {
     return this.ajax({ url, data, method: "PUT" })
