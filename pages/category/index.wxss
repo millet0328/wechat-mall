@@ -8,10 +8,11 @@
 
 .left .item {
   margin-bottom: 34rpx;
-  padding: 6rpx 0rpx 6rpx 20rpx;
+  padding: 6rpx 0rpx;
   border-left: 4rpx solid white;
   color: #101010;
   font-size: 26rpx;
+  text-align: center;
 }
 
 .left .item.active {

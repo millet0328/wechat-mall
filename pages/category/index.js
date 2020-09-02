@@ -7,31 +7,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-    category: [],
-    subCate: [],
+    cate_1st: [],
+    cate_2nd: [],
     activeIndex: 0,
   },
-  async handleChange(event) {
-    // 解构参数
-    let { i, id } = event.target.dataset;
-    let { status, data } = await Category.subCate({ pId: id });
+  async handleChange(e) {
+    let { i, id } = e.target.dataset;
     this.setData({
       activeIndex: i,
-      subCate: data,
     });
+    this.loadCate_2nd(id);
+  },
+  // 加载二级分类、三级分类
+  async loadCate_2nd(id) {
+    // 获取二级分类
+    let cate_2nd = await this.loadSubcate(id);
+    // 获取三级分类
+    for (let i = 0; i < cate_2nd.length; i++) {
+      const item = cate_2nd[i];
+      item.cate_3rd = await this.loadSubcate(item.id);
+    }
+    this.setData({
+      cate_2nd
+    });
+  },
+  // 获取子级分类
+  async loadSubcate(id) {
+    let { status, data } = await Category.subCate({ pId: id });
+    if (status) {
+      return data;
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    // 获取一级分类
-    let { status, data } = await Category.subCate({ pId: 1 });
-    // 获取一级分类的第一项子分类
-    let { data: subCate } = await Category.subCate({ pId: data[0].id });
+    let cate_1st = await this.loadSubcate(1);
     this.setData({
-      category: data,
-      subCate
+      cate_1st
     });
+    // 获取一级分类的第一项的子分类
+    this.loadCate_2nd(cate_1st[0].id);
   },
 
   /**

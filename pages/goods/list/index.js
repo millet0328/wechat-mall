@@ -8,16 +8,15 @@ Page({
    */
   data: {
     list: [],
-    cid: '', //分类id
+    id: '', //分类id
     pageIndex: 1, //当前第几页
     isEnd: false,//是否无新数据
   },
   // 获取商品列表
-  async loadList(id) {
+  async loadList() {
     // 当前第几页，分类id
-    let { pageIndex, cid } = this.data;
-
-    let { status, goods } = await Goods.list({ pageIndex, pageSize: 5, cate_2nd: cid });
+    let { pageIndex, id } = this.data;
+    let { status, goods } = await Goods.list({ pageIndex, pageSize: 6, cate_3rd: id });
     if (status) {
       // 暂无新数据
       if (goods.length == 0) {
@@ -34,7 +33,8 @@ Page({
       // 下拉刷新
       if (pageIndex == 1) {
         this.setData({
-          list: goods
+          list: goods,
+          isEnd: false,
         });
         wx.stopPullDownRefresh();
         return;
@@ -51,9 +51,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function ({ id }) {
-    this.setData({
-      cid: id
-    });
+    this.setData({ id });
     this.loadList();
   },
 

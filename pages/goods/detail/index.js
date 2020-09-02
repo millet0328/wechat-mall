@@ -1,5 +1,5 @@
 // pages/goods/detail/index.js
-import { Goods, Collection } from '../../../api/index.js';
+import { Goods, Collection, Cart } from '../../../api/index.js';
 
 Page({
 
@@ -22,11 +22,10 @@ Page({
     chosedIndex: '',
     isModalShow: false,
     action: '', //操作：加入购物车/立即购买
-    isCollected: false, //是否已收藏
   },
   // 收藏商品
   async handleCollect() {
-    let { isCollected, id } = this.data;
+    let { goods: { isCollected }, id } = this.data;
     if (isCollected) {
       let { status } = await Collection.remove(id);
       if (status) {
@@ -35,7 +34,7 @@ Page({
           icon: "none",
         });
         this.setData({
-          isCollected: false
+          "goods.isCollected": false
         });
       }
     } else {
@@ -46,14 +45,22 @@ Page({
           icon: "none",
         });
         this.setData({
-          isCollected: true
+          "goods.isCollected": true
         });
       }
     }
   },
   // 加入购物车
-  handleAddCart() {
-    this.closeSpecsModal();
+  async handleAddCart() {
+    let { id, num } = this.data;
+    let { status } = await Cart.add({ id, num });
+    if (status) {
+      wx.showToast({
+        title: '添加成功！',
+        icon: "none",
+      })
+      this.closeSpecsModal();
+    }
   },
   // 立即购买
   handlePurchase() {

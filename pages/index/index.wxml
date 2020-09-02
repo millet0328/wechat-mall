@@ -1,3 +1,4 @@
 <!--pages/index/index.wxml-->
+<rich-text nodes="{{detail}}"></rich-text>
 <!-- 自定义组件 -->
 <auth-modal bind:permit="handlePermit" is-show="{{authModalShow}}"></auth-modal>

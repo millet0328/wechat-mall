@@ -19,8 +19,6 @@ Page({
    */
   onLoad: function (options) {
     let isAuth = wx.getStorageSync('isAuth');
-    // isAuth = true，已授权，authModalShow = false
-    // isAuth = false/undefined，未授权，authModalShow = true
     this.setData({
       authModalShow: !isAuth,
     });

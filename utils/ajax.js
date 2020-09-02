@@ -10,7 +10,6 @@ let request = {
     let token = wx.getStorageSync('token');
     // 设置头部信息header
     let headerConfig = {
-      "Content-Type": 'application/x-www-form-urlencoded',
       Authorization: `Bearer ${token}`,
     };
     // 拼接完整api地址
@@ -20,19 +19,37 @@ let request = {
         url,
         data,
         method,
-        header: Object.assign({}, headerConfig, config),
+        header: { ...headerConfig, ...config },
         success({ statusCode, data }) {
           // 隐藏loading
           wx.hideLoading();
-          if (statusCode == 200) {
-            resolve(data);
-          } else {
-            //错误信息处理
-            wx.showModal({
-              title: '提示',
-              content: '服务器错误，请联系客服',
-              showCancel: false,
-            })
+          switch (statusCode) {
+            case 200:
+              resolve(data);
+              break;
+            case 401:
+              wx.showToast({
+                title: '错误码：401，无权限访问此API接口',
+                icon: "none",
+              });
+              reject(data);
+              break;
+            case 404:
+              wx.showToast({
+                title: '错误码：404，API接口地址错误！',
+                icon: "none",
+              });
+              reject();
+              break;
+            case 500:
+              wx.showToast({
+                title: '错误码：500，服务器错误！',
+                icon: "none",
+              });
+              reject();
+              break;
+            default:
+              break;
           }
         }
       });

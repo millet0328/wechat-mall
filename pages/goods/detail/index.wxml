@@ -42,7 +42,7 @@
 			客服
 		</view>
 		<view bindtap="handleCollect" class="action text-orange">
-			<view class="{{isCollected?'cuIcon-favorfill':'cuIcon-favor'}}"></view> 收藏
+			<view class="{{goods.isCollected?'cuIcon-favorfill':'cuIcon-favor'}}"></view> 收藏
 		</view>
 		<navigator url="../../cart/index" class="action" open-type="switchTab">
 			<view class="cuIcon-cart">

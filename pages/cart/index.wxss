@@ -1,1 +1,26 @@
 /* pages/cart/index.wxss */
+.form-item {
+  display: flex;
+  padding: 20rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+
+.form-item>label {
+  width: 160rpx;
+}
+
+.form-item .input-control {
+  width: 100%;
+  height: 2.4rem;
+  border-bottom: 1rpx solid #eee;
+}
+
+.form-item .radio-control,
+.form-item .checkbox-control {
+  transform: scale(0.7);
+}
+
+.submit {
+  margin-top: 30rpx;
+}
